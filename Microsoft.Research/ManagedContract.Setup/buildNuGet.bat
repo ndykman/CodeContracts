@@ -1,10 +1,11 @@
 @echo off
 setlocal
+
+if %1 == "" goto usage
+if %2 == "" goto usage
+
 set version=%1
 set releaseConfig=%2
-
-IF "%version%" EQU "" goto usage
-IF "%releaseConfig%" EQU "" goto usage
 
 :exec
 
@@ -29,8 +30,8 @@ set expandedFolder=%contractFolder%\%releaseConfig%\expandedMsi
 pushd %contractFolder%\NugetBinaries
 ExplodeMsi.exe -c -t "%msiFile%" "%expandedFolder%"
 if errorlevel 1 goto :error
-popd
 
+popd
 
 echo ************************************
 echo     Building NuGet Package
@@ -39,17 +40,26 @@ set packageRootFolder=%expandedFolder%\layout\[ProgramFilesFolder]\Microsoft\Con
 copy %contractFolder%\Microsoft.Contracts.ds %packageRootFolder%\Microsoft.Contracts.ds /Y
 NugetBinaries\NuGet.exe pack -Verbosity detailed -NoPackageAnalysis -NoDefaultExcludes Microsoft.Contracts.nuspec -OutputDirectory %contractFolder%\%releaseConfig% -Version %version% -BasePath "%packageRootFolder%"
 
-
-
 goto :end
 
 :usage
-	echo buildNuget.cmd ^<Version^> ^<ReleaseConfiguration^>
-	echo Version should match the version the MSI was build for. ReleaseConfiguration should be the same as passed to buildMsi i.e. msft9
+    endlocal 
+
+	echo buildNuget.cmd Version ReleaseConfiguration
+	echo Version (required) should match the version the MSI was build for. 
+	echo ReleaseConfiguration (required) should be the same as passed to buildMsi i.e. msft9
+	
 	exit /b 1
 
 :error
+	endlocal 
+	
 	echo.
 	echo !!! Error encountered !!!!
 	exit /b 1
+
 :end
+
+	endlocal
+	
+	exit /b 0
