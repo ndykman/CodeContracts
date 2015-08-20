@@ -61,8 +61,8 @@ echo     where day is the two digit day of the month of the build (the 7th is 07
 echo     For example: The second candidate build on August 14 targeting a 1.9.2 release would have a number 1.9.20814.2
 echo releaseConfig (optional) is a supported release configuration. Defaults to release.
 echo vsVersion (optional):
-echo   set to 12 to use Visual Studio 12 (2013) build toolchain.
-echo   set to 14 to use Visual Studio 14 (2015) build toolchain.
+echo   set to 12 to use Visual Studio 12 (2013) SDK for native code.
+echo   set to 14 to use Visual Studio 14 (2015) SDK for native code.
 
 exit /b 1
 

@@ -1,4 +1,6 @@
-if %1 == "" goto usage
+@echo off
+
+if "%1" == "" goto usage
 
 call deleteSignedBits.bat %1
 msbuild Setup10.proj /p:CCNetLabel=%1 /p:ContinuousBuild=true /p:IgnoreCpx=true /t:All
