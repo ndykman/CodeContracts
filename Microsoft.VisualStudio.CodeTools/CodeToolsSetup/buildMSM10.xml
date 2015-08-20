@@ -137,7 +137,7 @@
 
   <ItemGroup>
     <WixSources Include="
-      CodeTools.wxs
+      CodeTools10.wxs
     "/>
     <WixBaseDirs Include="
       $(CODETOOLS)\ITaskManager\$(BinDir);
