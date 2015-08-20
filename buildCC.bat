@@ -47,7 +47,9 @@ echo   Minor revision major.minor.release{monthofday}{day}.buildCount
 echo     where month of day is the two digit month of the build (August is 08, November is 11)
 echo     where day is the two digit day of the month of the build (the 7th is 07, 15th is 15)
 echo     For example: The second candidate build on August 14 targeting a 1.9.2 release would have a number 1.9.20814.2
-echo vsVersion (optional) set to 14 to use Visual Studio 14 (2015) build toolchain.
+echo vsVersion (optional):
+echo   set to 12 to use Visual Studio 12 (2013) build toolchain.
+echo   set to 14 to use Visual Studio 14 (2015) build toolchain.
 
 exit /b 1
 

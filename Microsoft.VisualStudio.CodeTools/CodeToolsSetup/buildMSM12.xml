@@ -51,7 +51,7 @@
    ===========================================================-->
   <PropertyGroup>
     <SolutionDir>..\</SolutionDir>
-    <SolutionName>CodeTools14.sln</SolutionName>
+    <SolutionName>CodeTools12.sln</SolutionName>
     <Platform>Mixed Platforms</Platform>
   </PropertyGroup>
 
@@ -126,7 +126,7 @@
             DestinationFolder="$(MsiDir)"  />
       <Copy SourceFiles="$(CODETOOLS)\TLB\ITaskManager.tlb"
             DestinationFolder="$(MsiDir)"  />
-      <Copy SourceFiles="$(CODETOOLS)\redist\Microsoft_VC140_CRT_x86.msm"
+      <Copy SourceFiles="$(CODETOOLS)\redist\Microsoft_VC120_CRT_x86.msm"
             DestinationFolder="$(MsiDir)" />
   </Target>
  
@@ -139,7 +139,7 @@
 
   <ItemGroup>
     <WixSources Include="
-      CodeTools14.wxs
+      CodeTools12.wxs
     "/>
     <WixBaseDirs Include="
       $(CODETOOLS)\ITaskManager\$(BinDir);
