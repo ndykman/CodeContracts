@@ -399,16 +399,16 @@
             A node in an Abstract Syntax Tree.
             </summary>
         </member>
+        <member name="F:System.Compiler.Node.SourceContext">
+            <summary>
+            The region in the source code that contains the concrete syntax corresponding to this node in the Abstract Syntax Tree.
+            </summary>
+        </member>
         <member name="M:System.Compiler.Node.Clone">
             <summary>
             Makes a shallow copy of the node.
             </summary>
             <returns>A shallow copy of the node</returns>
-        </member>
-        <member name="P:System.Compiler.Node.SourceContext">
-            <summary>
-            The region in the source code that contains the concrete syntax corresponding to this node in the Abstract Syntax Tree.
-            </summary>
         </member>
         <member name="P:System.Compiler.Node.NodeType">
             <summary>
@@ -1289,6 +1289,11 @@
             validation instructions rather than Requires(E)
             </summary>
         </member>
+        <member name="P:System.Compiler.MethodContract.HasAssertions">
+            <summary>
+            Returns true if current contract node has at least one precondition or postcondition.
+            </summary>
+        </member>
         <member name="T:System.Compiler.Invariant">
             <summary>
             This is a method, as we need a binding for "this".
@@ -1432,6 +1437,11 @@
             The type of value that this property holds.
             </summary>
         </member>
+        <member name="P:System.Compiler.Local.Anonymous">
+            <summary>
+            Returns true if the local has no name in the IL code
+            </summary>
+        </member>
         <member name="T:System.Compiler.Namespace">
             <summary>
             A named container of types and nested namespaces. 
@@ -1546,6 +1556,21 @@
             where the public key tokens and versions numbers are determined by reading in the actual assemblies from
             the supplied location. Only assemblies recognized as platform assemblies in version 1.1 will be unified.
             </summary>
+        </member>
+        <member name="M:System.Compiler.Ir2md.AppendEscapedTypeName(System.Text.StringBuilder,System.Compiler.TypeNode)">
+            <summary>
+            Appends the escaped full name of the type to a string builder.
+            </summary>
+            <param name="sb">String builder to append to.</param>
+            <param name="type">Type whose full name to append.</param>
+        </member>
+        <member name="M:System.Compiler.Ir2md.IsTypeNameReservedChar(System.Char)">
+            <summary>
+            Determines if the provided character has a special meaning in a fully qualified type name
+            and therefore has to be escaped if used as part of a type name identifier.
+            </summary>
+            <param name="ch">Character to test.</param>
+            <returns>True if the character has to be escaped or false - otherwise.</returns>
         </member>
     </members>
 </doc>
